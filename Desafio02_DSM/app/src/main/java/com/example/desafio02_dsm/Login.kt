@@ -1,4 +1,4 @@
-rrrrpackage com.example.desafio02_dsm
+package com.example.desafio02_dsm
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
