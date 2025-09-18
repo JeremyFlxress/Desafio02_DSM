@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Desafio02_DSM</string>
+    <string name="app_title">VentaExpress</string>
+    <string name="app_description">Sistema de venta de medicamentos</string>
+    <string name="employee">Juan Peréz</string>
+
+    <string name="med_name">Paracetamol 500ml</string>
+    <string name="med_stock">Stock 30</string>
+    <string name="med_prize">Precio $2.50</string>
+
+    <string name="cliente_name">Maria Lopez</string>
+    <string name="cliente_phone">Tel: 7032 6925</string>
+    <string name="cliente_mail">Correo: maria@gmail.com</string>
 </resources>

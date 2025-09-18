@@ -1,0 +1,27 @@
+<resources>
+    <!-- PRODUCTOS -->
+    <dimen name="producto_text"></dimen>
+
+    <!-- HEADER -->
+    <dimen name="header_title">22sp</dimen>
+    <dimen name="header_padding">16dp</dimen>
+    <dimen name="header_employee">16sp</dimen>
+
+    <!-- CARD MED -->
+    <dimen name="medscroll_padding">16dp</dimen>
+
+    <dimen name="med_title">18sp</dimen>
+    <dimen name="med_description">16sp</dimen>
+    <dimen name="med_bottomargin">16dp</dimen>
+    <dimen name="med_radius">16dp</dimen>
+    <dimen name="med_padding">12dp</dimen>
+    <dimen name="medbutton_margin">8dp</dimen>
+    <dimen name="medimage_width">80dp</dimen>
+    <dimen name="medimage_height">80dp</dimen>
+    <dimen name="medimage_marginRigth">12dp</dimen>
+
+    <!-- CLIENTES -->
+    <dimen name="cliente_title">18sp</dimen>
+    <dimen name="cliente_text">16sp</dimen>
+
+</resources>

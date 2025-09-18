@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#F5FFFA">
+        android:background="@color/gris_fondo">
 
         <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
+            android:background="@color/blanco"
             android:padding="16dp"
             android:orientation="horizontal"
             android:gravity="center_vertical">
@@ -26,7 +26,7 @@
                 android:id="@+id/tvAppName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FarmaciaApp"
+                android:text="@string/app_title"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/verde_esmeralda"
@@ -36,8 +36,8 @@
                 android:id="@+id/tvEmpleado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Juan Pérez"
-                android:textSize="16sp"
+                android:text="@string/employee"
+                android:textSize="@dimen/header_employee"
                 android:textColor="@color/gris_texto" />
         </LinearLayout>
 
@@ -69,24 +69,24 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="María López"
-                            android:textSize="18sp"
+                            android:text="@string/cliente_name"
+                            android:textSize="@dimen/cliente_title"
                             android:textStyle="bold"
-                            android:textColor="#0D47A1" />
+                            android:textColor="@color/azul" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Correo: maria@gmail.com"
-                            android:textSize="16sp"
-                            android:textColor="#37474F" />
+                            android:text="@string/cliente_mail"
+                            android:textSize="@dimen/cliente_text"
+                            android:textColor="@color/gris_texto2" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Tel: 7777-8888"
-                            android:textSize="16sp"
-                            android:textColor="#37474F" />
+                            android:text="@string/cliente_phone"
+                            android:textSize="@dimen/cliente_text"
+                            android:textColor="@color/gris_texto2" />
 
                         <!-- BOTONES -->
                         <LinearLayout
@@ -99,16 +99,16 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Editar"
-                                android:backgroundTint="#1976D2"
-                                android:textColor="#FFFFFF"
+                                android:backgroundTint="@color/azul"
+                                android:textColor="@color/blanco"
                                 android:layout_marginRight="8dp" />
 
                             <Button
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Eliminar"
-                                android:backgroundTint="#D32F2F"
-                                android:textColor="#FFFFFF" />
+                                android:backgroundTint="@color/rojo_boton"
+                                android:textColor="@color/blanco" />
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
