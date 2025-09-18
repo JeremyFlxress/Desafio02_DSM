@@ -63,7 +63,7 @@
             <Button
                 android:id="@+id/btnGuardarCliente"
                 android:text="Guardar"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/blanco"
                 android:backgroundTint="#2B7A4B"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
