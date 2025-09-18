@@ -9,10 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.facebook.AccessToken
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
+import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.firebase.auth.FacebookAuthProvider
@@ -33,20 +30,37 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        
+        try {
+            // 🔹 Inicializar Facebook SDK
+            FacebookSdk.setApplicationId(getString(R.string.facebook_app_id))
+            FacebookSdk.sdkInitialize(applicationContext)
+            
+            // 🔹 Inicializar FirebaseAuth y Facebook CallbackManager
+            auth = FirebaseAuth.getInstance()
+            
+            // Cerrar cualquier sesión existente al iniciar la app
+            auth.signOut()
+            LoginManager.getInstance().logOut()
+            
+            enableEdgeToEdge()
+            setContentView(R.layout.activity_main)
+            
+            callbackManager = CallbackManager.Factory.create()
 
-        // 🔹 Inicializar FirebaseAuth y Facebook CallbackManager
-        auth = FirebaseAuth.getInstance()
-        callbackManager = CallbackManager.Factory.create()
-
-        // 🔹 Referencias UI
-        etEmail = findViewById(R.id.etEmail)
-        etPassword = findViewById(R.id.etPassword)
-        btnLogin = findViewById(R.id.btnLogin)
-        btnRegistrarse = findViewById(R.id.btnRegistrarse)
-        btnFacebook = findViewById(R.id.btnFacebook)
-        btnGitHub = findViewById(R.id.btnGitHub)
+            // 🔹 Referencias UI
+            etEmail = findViewById(R.id.etEmail)
+            etPassword = findViewById(R.id.etPassword)
+            btnLogin = findViewById(R.id.btnLogin)
+            btnRegistrarse = findViewById(R.id.btnRegistrarse)
+            btnFacebook = findViewById(R.id.btnFacebook)
+            btnGitHub = findViewById(R.id.btnGitHub)
+        } catch (e: Exception) {
+            // Si hay algún error en la inicialización, reiniciar la actividad
+            Toast.makeText(this, "Error al iniciar la aplicación", Toast.LENGTH_SHORT).show()
+            recreate()
+            return
+        }
 
         // 🔹 Acción de login con email/password
         btnLogin.setOnClickListener {
@@ -67,7 +81,14 @@ class MainActivity : AppCompatActivity() {
 
         // 🔹 Login con Facebook
         btnFacebook.setOnClickListener {
-            LoginManager.getInstance().logInWithReadPermissions(this, listOf("email", "public_profile"))
+            // Asegurarse de cerrar cualquier sesión previa
+            LoginManager.getInstance().logOut()
+            
+            // Solicitar permisos necesarios
+            LoginManager.getInstance().logInWithReadPermissions(
+                this,
+                listOf("email", "public_profile")
+            )
         }
 
         // Configurar callback de Facebook
@@ -103,16 +124,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loginEmpleado(email: String, password: String) {
+        // Desactivar el botón de login para evitar múltiples clicks
+        btnLogin.isEnabled = false
+        
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // ✅ Login correcto → Ir al Dashboard
-                    Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, Dashboard::class.java))
-                    finish()
+                    try {
+                        // ✅ Login correcto → Ir al Dashboard
+                        Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, Dashboard::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        startActivity(intent)
+                        finish()
+                    } catch (e: Exception) {
+                        // Error al abrir Dashboard
+                        auth.signOut() // Asegurarse de cerrar la sesión si hay error
+                        Toast.makeText(this, "Error al abrir Dashboard: ${e.message}", Toast.LENGTH_LONG).show()
+                        btnLogin.isEnabled = true
+                    }
                 } else {
                     // ❌ Error de login
+                    auth.signOut() // Asegurarse de cerrar la sesión si hay error
                     Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                    btnLogin.isEnabled = true
                 }
             }
     }
@@ -120,12 +155,8 @@ class MainActivity : AppCompatActivity() {
     // 🔹 Verificar si ya hay usuario logueado
     override fun onStart() {
         super.onStart()
-        val usuario = auth.currentUser
-        if (usuario != null) {
-            // Si ya había sesión, ir directo al Dashboard
-            startActivity(Intent(this, Dashboard::class.java))
-            finish()
-        }
+        // Al iniciar, asegurarnos de que estamos en la pantalla de login
+        auth.signOut()
     }
 
     // 🔹 Procesar resultado del login de Facebook
@@ -155,20 +186,52 @@ class MainActivity : AppCompatActivity() {
     // 🔹 Login con GitHub
     private fun signInWithGitHub() {
         val provider = OAuthProvider.newBuilder("github.com").apply {
-            addCustomParameter("scope", "user:email")
+            addCustomParameter("scope", "user:email read:user")
+            addCustomParameter("client_id", getString(R.string.github_client_id))
         }
 
-        auth.startActivityForSignInWithProvider(this, provider.build())
-            .addOnSuccessListener { authResult ->
-                // Login exitoso
-                Toast.makeText(this, "Bienvenido via GitHub", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, Dashboard::class.java))
-                finish()
-            }
-            .addOnFailureListener { e ->
-                // Error en el login
-                Toast.makeText(this, "Error en login de GitHub: ${e.message}",
-                    Toast.LENGTH_SHORT).show()
-            }
+        // Primero, verificar si hay una sesión pendiente
+        auth.pendingAuthResult?.addOnSuccessListener { authResult ->
+            // Existe una sesión pendiente, manejarla
+            Toast.makeText(this, "Bienvenido via GitHub", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, Dashboard::class.java))
+            finish()
+        }?.addOnFailureListener { e ->
+            // No hay sesión pendiente, iniciar nuevo flujo
+            startGitHubLogin(provider)
+        } ?: startGitHubLogin(provider) // Si no hay pending result, iniciar nuevo flujo
+    }
+
+    private fun startGitHubLogin(provider: OAuthProvider.Builder) {
+        try {
+            auth.startActivityForSignInWithProvider(this, provider.build())
+                .addOnSuccessListener { authResult ->
+                    // Login exitoso
+                    val user = authResult.user
+                    if (user != null) {
+                        Toast.makeText(this, "Bienvenido ${user.displayName}", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, Dashboard::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+                .addOnFailureListener { e ->
+                    // Error en el login
+                    when {
+                        e.message?.contains("cancelled") == true -> {
+                            Toast.makeText(this, "Login cancelado", Toast.LENGTH_SHORT).show()
+                        }
+                        e.message?.contains("network") == true -> {
+                            Toast.makeText(this, "Error de red. Verifica tu conexión", Toast.LENGTH_LONG).show()
+                        }
+                        else -> {
+                            Toast.makeText(this, "Error en login de GitHub: ${e.message}", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+        } catch (e: Exception) {
+            Toast.makeText(this, "Error al iniciar login: ${e.message}", Toast.LENGTH_LONG).show()
+        }
     }
 }

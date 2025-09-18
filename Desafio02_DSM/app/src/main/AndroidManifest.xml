@@ -29,7 +29,9 @@
             android:exported="false" />
         <activity
             android:name=".AddProducto"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Productos"
+            android:label="Agregar Producto" />
         <activity
             android:name=".Ventas"
             android:exported="false" />
@@ -41,13 +43,26 @@
             android:exported="false" />
         <activity
             android:name=".Dashboard"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:host="login"
+                    android:path="/oauth/github"
+                    android:scheme="com.example.desafio02_dsm"/>
+            </intent-filter>
+            android:launchMode="singleTask"
+            android:clearTaskOnLaunch="true">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
