@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gris_fondo"
@@ -75,6 +75,15 @@
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/verde_esmeralda"
                 android:text="Iniciar sesión"
+                android:textColor="@color/blanco" />
+
+            <Button
+                android:id="@+id/btnRegistrarse"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/azul_claro"
+                android:text="Registrarse"
                 android:textColor="@color/blanco" />
 
             <!-- Botones sociales -->

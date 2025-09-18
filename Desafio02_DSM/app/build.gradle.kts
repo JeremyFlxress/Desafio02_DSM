@@ -37,18 +37,22 @@ android {
 }
 
 dependencies {
-    // Firebase BOM
-    implementation(platform(libs.firebase.bom))
+    implementation(platform("com.google.firebase:firebase-bom:34.2.0"))
 
+    // Firebase BOM y Auth
+    implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
+    
+    // Facebook Login (versión específica para evitar problemas de compatibilidad)
+    implementation("com.facebook.android:facebook-login:16.3.0")
+    
+    // Base Android dependencies
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.firebase.auth)
-    implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

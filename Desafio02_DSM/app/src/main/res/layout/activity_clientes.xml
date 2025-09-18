@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -13,7 +13,6 @@
         android:orientation="vertical"
         android:background="@color/gris_fondo">
 
-        <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,13 +23,14 @@
 
             <TextView
                 android:id="@+id/tvAppName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/app_title"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/verde_esmeralda"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:layout_marginStart="16dp" />
 
             <TextView
                 android:id="@+id/tvEmpleado"
@@ -41,7 +41,6 @@
                 android:textColor="@color/gris_texto" />
         </LinearLayout>
 
-        <!-- CONTENIDO -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -52,7 +51,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- CARD CLIENTE -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -88,7 +86,6 @@
                             android:textSize="@dimen/cliente_text"
                             android:textColor="@color/gris_texto2" />
 
-                        <!-- BOTONES -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -112,10 +109,22 @@
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
+                </LinearLayout>
         </ScrollView>
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAgregarCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/verde_esmeralda"
+        app:tint="@color/blanco"
+        app:fabSize="normal"
+        android:contentDescription="Agregar nuevo cliente" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

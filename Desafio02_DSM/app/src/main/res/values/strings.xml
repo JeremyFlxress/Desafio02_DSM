@@ -11,4 +11,10 @@
     <string name="cliente_name">Maria Lopez</string>
     <string name="cliente_phone">Tel: 7032 6925</string>
     <string name="cliente_mail">Correo: maria@gmail.com</string>
+    
+    <!-- Social Login -->
+    <string name="facebook_app_id">1304900684612113</string>
+    <string name="facebook_client_token">5d249927ef62de3fa77a64717ff25cea</string>
+    <string name="github_client_id">Ov23liQn88Q9JBfDkHok</string>
+    <string name="github_client_secret">b0b17fb2fe9b4fa83d429e8b2d618c0bb7c51820</string>
 </resources>

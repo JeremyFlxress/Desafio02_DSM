@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="@color/gris_fondo">
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar Empleado"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/verde_esmeralda"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/etEmailEmpleado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Correo empleado"
+        android:inputType="textEmailAddress"
+        android:drawableStart="@android:drawable/ic_dialog_email"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/etPasswordEmpleado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:drawableStart="@android:drawable/ic_lock_idle_lock"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/etConfirmarPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="Confirmar contraseña"
+        android:inputType="textPassword"
+        android:drawableStart="@android:drawable/ic_lock_idle_lock"
+        android:padding="10dp"/>
+
+    <Button
+        android:id="@+id/btnRegistrarEmpleado"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/verde_esmeralda"
+        android:text="Registrar"
+        android:textColor="@color/blanco"/>
+
+    <TextView
+        android:id="@+id/tvIrLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Ya tienes cuenta? Inicia sesión"
+        android:textColor="@color/azul_claro"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>

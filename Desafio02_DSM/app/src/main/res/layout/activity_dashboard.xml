@@ -51,6 +51,7 @@
 
             <!-- Productos -->
             <LinearLayout
+                android:id="@+id/cardProductos"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -58,7 +59,9 @@
                 android:padding="12dp"
                 android:background="@color/blanco"
                 android:elevation="3dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
 
                 <TextView
                     android:text="4"
@@ -74,6 +77,7 @@
 
             <!-- Clientes -->
             <LinearLayout
+                android:id="@+id/cardClientes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -83,7 +87,9 @@
                 android:layout_marginEnd="8dp"
                 android:background="@color/blanco"
                 android:elevation="3dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
 
                 <TextView
                     android:text="3"
@@ -99,6 +105,7 @@
 
             <!-- Ventas -->
             <LinearLayout
+                android:id="@+id/cardVentas"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -106,7 +113,9 @@
                 android:padding="12dp"
                 android:background="@color/blanco"
                 android:elevation="3dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
 
                 <TextView
                     android:text="1"
@@ -123,31 +132,40 @@
 
         <!-- Secciones -->
         <TextView
+            android:id="@+id/sectionProductos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Productos\nGestiona inventario"
             android:background="@color/azul_claro"
             android:padding="16dp"
             android:layout_marginTop="24dp"
-            android:textColor="@color/gris_texto"/>
+            android:textColor="@color/gris_texto"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <TextView
+            android:id="@+id/sectionClientes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Clientes\nRegistra clientes"
             android:background="@color/blanco"
             android:padding="16dp"
             android:layout_marginTop="12dp"
-            android:textColor="@color/gris_texto"/>
+            android:textColor="@color/gris_texto"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <TextView
+            android:id="@+id/sectionVentas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ventas\nRegistra transacciones"
             android:background="@color/blanco"
             android:padding="16dp"
             android:layout_marginTop="12dp"
-            android:textColor="@color/gris_texto"/>
+            android:textColor="@color/gris_texto"
+            android:clickable="true"
+            android:focusable="true"/>
     </LinearLayout>
 
 

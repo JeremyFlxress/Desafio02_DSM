@@ -1,6 +1,6 @@
 <resources>
     <!-- PRODUCTOS -->
-    <dimen name="producto_text"></dimen>
+    <dimen name="producto_text">20sp</dimen>
 
     <!-- HEADER -->
     <dimen name="header_title">22sp</dimen>
