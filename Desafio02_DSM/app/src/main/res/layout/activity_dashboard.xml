@@ -1,73 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
     tools:context=".Dashboard">
 
+    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/gris_fondo"
-        android:padding="16dp">
+        android:padding="24dp"
+        android:background="@color/verde_esmeralda">
 
-        <!-- Header -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:text="Bienvenido de nuevo,"
+            android:textSize="18sp"
+            android:textColor="@color/blanco"/>
 
-            <TextView
-                android:id="@+id/tvAppName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_title"
-                android:textSize="@dimen/header_title"
-                android:textStyle="bold"
-                android:textColor="@color/verde_esmeralda"
-                android:layout_weight="1"
-                />
-
-            <TextView
-                android:id="@+id/tvUserName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/employee"
-                android:textColor="@color/gris_texto"
-                android:textSize="@dimen/header_employee"/>
-        </LinearLayout>
-
-        <!-- Estadísticas -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:weightSum="3">
+            android:text="Cargando..."
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/blanco"/>
+    </LinearLayout>
 
-            <!-- Productos -->
+    <!-- Grid de Métricas -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:padding="14dp">
+
+        <!-- Card de Productos -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardProductos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp">
+
             <LinearLayout
-                android:id="@+id/cardProductos"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:orientation="vertical"
-                android:padding="12dp"
-                android:background="@color/blanco"
-                android:elevation="3dp"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true">
+                android:padding="16dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_medicine"
+                    app:tint="@color/verde_esmeralda" />
 
                 <TextView
+                    android:id="@+id/tvProductosCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4"
-                    android:textSize="@dimen/producto_text"
+                    android:text="-"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/verde_esmeralda"/>
 
@@ -75,30 +83,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Productos"
-                    android:textSize="14sp"
-                    android:textColor="@color/gris_texto"/>
+                    android:textSize="14sp"/>
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <!-- Clientes -->
+        <!-- Card de Clientes -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardClientes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp">
+
             <LinearLayout
-                android:id="@+id/cardClientes"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:orientation="vertical"
-                android:padding="12dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@color/blanco"
-                android:elevation="3dp"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true">
+                android:padding="16dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@android:drawable/ic_menu_myplaces"
+                    app:tint="@color/verde_esmeralda" />
 
                 <TextView
+                    android:id="@+id/tvClientesCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3"
+                    android:text="-"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/verde_esmeralda"/>
@@ -107,28 +126,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Clientes"
-                    android:textSize="14sp"
-                    android:textColor="@color/gris_texto"/>
+                    android:textSize="14sp"/>
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <!-- Ventas -->
+        <!-- Card de Ventas -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardVentas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp">
+
             <LinearLayout
-                android:id="@+id/cardVentas"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:orientation="vertical"
-                android:padding="12dp"
-                android:background="@color/blanco"
-                android:elevation="3dp"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true">
+                android:padding="16dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@android:drawable/ic_dialog_info"
+                    app:tint="@color/verde_esmeralda" />
 
                 <TextView
+                    android:id="@+id/tvVentasCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
+                    android:text="-"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/verde_esmeralda"/>
@@ -137,47 +169,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ventas"
-                    android:textSize="14sp"
-                    android:textColor="@color/gris_texto"/>
+                    android:textSize="14sp"/>
             </LinearLayout>
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <!-- Secciones -->
-        <TextView
-            android:id="@+id/sectionProductos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Productos\nGestiona inventario"
-            android:background="@color/azul_claro"
-            android:padding="16dp"
-            android:layout_marginTop="24dp"
-            android:textColor="@color/gris_texto"
-            android:clickable="true"
-            android:focusable="true"/>
+    </GridLayout>
 
-        <TextView
-            android:id="@+id/sectionClientes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Clientes\nRegistra clientes"
-            android:background="@color/blanco"
-            android:padding="16dp"
-            android:layout_marginTop="12dp"
-            android:textColor="@color/gris_texto"
-            android:clickable="true"
-            android:focusable="true"/>
-
-        <TextView
-            android:id="@+id/sectionVentas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ventas\nRegistra transacciones"
-            android:background="@color/blanco"
-            android:padding="16dp"
-            android:layout_marginTop="12dp"
-            android:textColor="@color/gris_texto"
-            android:clickable="true"
-            android:focusable="true"/>
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

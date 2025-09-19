@@ -2,65 +2,120 @@ package com.example.desafio02_dsm
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 
 class Dashboard : AppCompatActivity() {
 
-    private lateinit var cardProductos: LinearLayout
-    private lateinit var cardClientes: LinearLayout
-    private lateinit var cardVentas: LinearLayout
-    private lateinit var sectionProductos: TextView
-    private lateinit var sectionClientes: TextView
-    private lateinit var sectionVentas: TextView
+    // UI References
+    private lateinit var tvUserName: TextView
+    private lateinit var tvProductosCount: TextView
+    private lateinit var tvClientesCount: TextView
+    private lateinit var tvVentasCount: TextView
+    private lateinit var cardProductos: CardView
+    private lateinit var cardClientes: CardView
+    private lateinit var cardVentas: CardView
+
+    // Firebase References
+    private var userRef: DatabaseReference? = null
+    private var productosRef: DatabaseReference? = null
+    private var clientesRef: DatabaseReference? = null
+    private var ventasRef: DatabaseReference? = null
+
+    // Listeners
+    private val listeners = mutableMapOf<DatabaseReference, ValueEventListener>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_dashboard)
 
-        // Referencias UI
+        // Init UI
+        tvUserName = findViewById(R.id.tvUserName)
+        tvProductosCount = findViewById(R.id.tvProductosCount)
+        tvClientesCount = findViewById(R.id.tvClientesCount)
+        tvVentasCount = findViewById(R.id.tvVentasCount)
         cardProductos = findViewById(R.id.cardProductos)
         cardClientes = findViewById(R.id.cardClientes)
         cardVentas = findViewById(R.id.cardVentas)
-        sectionProductos = findViewById(R.id.sectionProductos)
-        sectionClientes = findViewById(R.id.sectionClientes)
-        sectionVentas = findViewById(R.id.sectionVentas)
 
-        // Click listeners para las cards de estadísticas
-        cardProductos.setOnClickListener {
-            startActivity(Intent(this, Productos::class.java))
-        }
-
-        cardClientes.setOnClickListener {
-            startActivity(Intent(this, Clientes::class.java))
-        }
-
-        cardVentas.setOnClickListener {
-            startActivity(Intent(this, Ventas::class.java))
-        }
-
-        // Click listeners para las secciones
-        sectionProductos.setOnClickListener {
-            startActivity(Intent(this, Productos::class.java))
-        }
-
-        sectionClientes.setOnClickListener {
-            startActivity(Intent(this, Clientes::class.java))
-        }
-
-        sectionVentas.setOnClickListener {
-            startActivity(Intent(this, Ventas::class.java))
-        }
+        // Setup Click Listeners
+        cardProductos.setOnClickListener { startActivity(Intent(this, Productos::class.java)) }
+        cardClientes.setOnClickListener { startActivity(Intent(this, Clientes::class.java)) }
+        cardVentas.setOnClickListener { startActivity(Intent(this, Ventas::class.java)) }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        loadDashboardData()
+    }
+
+    private fun loadDashboardData() {
+        val user = FirebaseManager.getCurrentUserId()
+        if (user == null) {
+            Toast.makeText(this, "Error: Usuario no autenticado", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        // Get references
+        userRef = FirebaseManager.getUserRootRef()
+        productosRef = FirebaseManager.getProductosRef()
+        clientesRef = FirebaseManager.getClientesRef()
+        ventasRef = FirebaseManager.getVentasRef()
+
+        // Load User Name
+        attachListener(userRef) { snapshot ->
+            val nombre = snapshot.child("nombre").getValue(String::class.java)
+            tvUserName.text = nombre ?: "Sin Nombre"
+        }
+
+        // Load Products Count
+        attachListener(productosRef) { snapshot ->
+            tvProductosCount.text = snapshot.childrenCount.toString()
+        }
+
+        // Load Clients Count
+        attachListener(clientesRef) { snapshot ->
+            tvClientesCount.text = snapshot.childrenCount.toString()
+        }
+
+        // Load Sales Count
+        attachListener(ventasRef) { snapshot ->
+            tvVentasCount.text = snapshot.childrenCount.toString()
+        }
+    }
+
+    private fun attachListener(dbRef: DatabaseReference?, onDataChange: (DataSnapshot) -> Unit) {
+        dbRef?.let {
+            val listener = object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    onDataChange(snapshot)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(this@Dashboard, "Error al cargar datos: ${error.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+            it.addValueEventListener(listener)
+            listeners[it] = listener
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Detach all listeners to prevent memory leaks
+        listeners.forEach { (ref, listener) ->
+            ref.removeEventListener(listener)
         }
     }
 }
