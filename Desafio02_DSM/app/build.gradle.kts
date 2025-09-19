@@ -45,7 +45,7 @@ dependencies {
     implementation(libs.firebase.database)
     
     // Facebook Login (versión específica para evitar problemas de compatibilidad)
-    implementation("com.facebook.android:facebook-login:16.3.0")
+    implementation("com.facebook.android:facebook-login:latest.release")
     
     // Base Android dependencies
     implementation(libs.androidx.core.ktx)
