@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
         // 🔹 Ir a registrar nuevo empleado
         btnRegistrarse.setOnClickListener {
-            startActivity(Intent(this, RegistrarEmpleadoActivity::class.java))
+            startActivity(Intent(this, RegistrarEmpleado::class.java))
         }
 
         // 🔹 Login con Facebook

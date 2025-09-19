@@ -41,90 +41,26 @@
                 android:textColor="@color/gris_texto" />
         </LinearLayout>
 
-        <ScrollView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/medscroll_padding">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewProductos"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/medscroll_padding" />
+
+            <TextView
+                android:id="@+id/tvEmptyProductos"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:text="No hay Productos aún"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:visibility="gone" />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/med_bottomargin"
-                    android:elevation="6dp"
-                    app:cardCornerRadius="@dimen/med_radius">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="@dimen/med_padding">
-
-                        <ImageView
-                            android:layout_width="@dimen/medimage_width"
-                            android:layout_height="@dimen/medimage_height"
-                            android:src="@drawable/ic_medicine"
-                            android:scaleType="centerCrop"
-                            android:layout_marginRight="@dimen/medimage_marginRigth" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/med_name"
-                                android:textSize="@dimen/med_title"
-                                android:textStyle="bold"
-                                android:textColor="@color/verde_esmeralda" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/med_prize"
-                                android:textSize="@dimen/med_description"
-                                android:textColor="@color/gris_texto2" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/med_stock"
-                                android:textSize="@dimen/med_description"
-                                android:textColor="@color/gris_texto2" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="@dimen/medbutton_margin">
-
-                                <Button
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Editar"
-                                    android:backgroundTint="@color/azul"
-                                    android:textColor="@color/blanco"
-                                    android:layout_marginRight="@dimen/medbutton_margin" />
-
-                                <Button
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Eliminar"
-                                    android:backgroundTint="@color/rojo_boton"
-                                    android:textColor="@color/blanco" />
-                            </LinearLayout>
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                </LinearLayout>
-        </ScrollView>
+        </FrameLayout>
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

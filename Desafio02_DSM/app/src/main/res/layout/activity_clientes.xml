@@ -41,76 +41,26 @@
                 android:textColor="@color/gris_texto" />
         </LinearLayout>
 
-        <ScrollView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewClientes"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp" />
+
+            <TextView
+                android:id="@+id/tvEmptyClientes"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:text="No hay Clientes aún"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:visibility="gone" />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:elevation="6dp"
-                    app:cardCornerRadius="16dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="12dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cliente_name"
-                            android:textSize="@dimen/cliente_title"
-                            android:textStyle="bold"
-                            android:textColor="@color/azul" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cliente_mail"
-                            android:textSize="@dimen/cliente_text"
-                            android:textColor="@color/gris_texto2" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cliente_phone"
-                            android:textSize="@dimen/cliente_text"
-                            android:textColor="@color/gris_texto2" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="8dp">
-
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Editar"
-                                android:backgroundTint="@color/azul"
-                                android:textColor="@color/blanco"
-                                android:layout_marginRight="8dp" />
-
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Eliminar"
-                                android:backgroundTint="@color/rojo_boton"
-                                android:textColor="@color/blanco" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                </LinearLayout>
-        </ScrollView>
+        </FrameLayout>
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
