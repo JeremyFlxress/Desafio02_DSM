@@ -1,27 +1,31 @@
 <resources>
-    <!-- PRODUCTOS -->
-    <dimen name="producto_text">20sp</dimen>
+    <dimen name="spacing_small">4dp</dimen>
+    <dimen name="spacing_medium">10dp</dimen>
+    <dimen name="spacing_large">20dp</dimen>
+    <dimen name="spacing_xlarge">24dp</dimen>
+    <dimen name="spacing_large_14">14dp</dimen>
 
-    <!-- HEADER -->
-    <dimen name="header_title">22sp</dimen>
-    <dimen name="header_padding">16dp</dimen>
-    <dimen name="header_employee">16sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_regular">16sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_large">22sp</dimen>
+    <dimen name="text_size_xlarge">24sp</dimen>
+    <dimen name="text_size_xxlarge">26sp</dimen>
 
-    <!-- CARD MED -->
-    <dimen name="medscroll_padding">16dp</dimen>
+    <dimen name="card_elevation">6dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="card_padding">12dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
 
-    <dimen name="med_title">18sp</dimen>
-    <dimen name="med_description">16sp</dimen>
-    <dimen name="med_bottomargin">16dp</dimen>
-    <dimen name="med_radius">16dp</dimen>
-    <dimen name="med_padding">12dp</dimen>
-    <dimen name="medbutton_margin">8dp</dimen>
-    <dimen name="medimage_width">80dp</dimen>
-    <dimen name="medimage_height">80dp</dimen>
-    <dimen name="medimage_marginRigth">12dp</dimen>
+    <dimen name="header_title">@dimen/text_size_large</dimen>
+    <dimen name="header_padding">@dimen/spacing_large</dimen>
+    <dimen name="header_employee">@dimen/text_size_regular</dimen>
 
-    <!-- CLIENTES -->
-    <dimen name="cliente_title">18sp</dimen>
-    <dimen name="cliente_text">16sp</dimen>
+    <dimen name="button_size_small">48dp</dimen>
+    <dimen name="icon_size_large">64dp</dimen>
+    <dimen name="button_margin">8dp</dimen>
+
+    <dimen name="input_padding">12dp</dimen>
+    <dimen name="list_item_margin_top">@dimen/spacing_medium</dimen>
 
 </resources>

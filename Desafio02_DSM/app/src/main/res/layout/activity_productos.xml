@@ -30,7 +30,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/verde_esmeralda"
                 android:layout_weight="1"
-                android:layout_marginStart="16dp"/>
+                android:layout_marginStart="@dimen/spacing_large"/>
         </LinearLayout>
 
         <FrameLayout
@@ -41,14 +41,14 @@
                 android:id="@+id/recyclerViewProductos"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/medscroll_padding" />
+                android:padding="@dimen/spacing_medium" />
 
             <TextView
                 android:id="@+id/tvEmptyProductos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No hay Productos aún"
-                android:textSize="18sp"
+                android:text="@string/productos_empty_list"
+                android:textSize="@dimen/text_size_medium"
                 android:layout_gravity="center"
                 android:visibility="gone" />
 
@@ -60,13 +60,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/spacing_large"
         android:clickable="true"
         android:focusable="true"
         app:srcCompat="@android:drawable/ic_input_add"
         app:backgroundTint="@color/verde_esmeralda"
         app:tint="@color/blanco"
         app:fabSize="normal"
-        android:contentDescription="Agregar nuevo producto" />
+        android:contentDescription="@string/productos_add_button_description" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

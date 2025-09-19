@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    android:layout_margin="@dimen/card_margin"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
+        android:padding="@dimen/card_padding"
         android:gravity="center_vertical">
 
         <LinearLayout
@@ -24,20 +24,20 @@
                 android:id="@+id/cliente_nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/cliente_correo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_size_regular" />
 
             <TextView
                 android:id="@+id/cliente_telefono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_size_regular" />
         </LinearLayout>
 
         <LinearLayout
@@ -48,20 +48,20 @@
 
             <ImageButton
                 android:id="@+id/btnEditarCliente"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="@dimen/button_size_small"
+                android:layout_height="@dimen/button_size_small"
                 android:src="@drawable/ic_edit"
                 android:backgroundTint="@color/blanco"
-                android:contentDescription="Editar cliente" />
+                android:contentDescription="@string/edit" />
 
             <ImageButton
                 android:id="@+id/btnEliminarCliente"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="@dimen/button_size_small"
+                android:layout_height="@dimen/button_size_small"
                 android:src="@drawable/ic_trash"
                 android:backgroundTint="@color/blanco"
-                android:layout_marginStart="8dp"
-                android:contentDescription="Eliminar cliente" />
+                android:layout_marginStart="@dimen/button_margin"
+                android:contentDescription="@string/remove" />
         </LinearLayout>
     </LinearLayout>
 

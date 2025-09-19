@@ -2,15 +2,76 @@
     <string name="app_name">Desafio02_DSM</string>
     <string name="app_title">VentaExpress</string>
     <string name="app_description">Sistema de venta de medicamentos</string>
-    <string name="employee">Juan Peréz</string>
 
-    <string name="med_name">Paracetamol 500ml</string>
-    <string name="med_stock">Stock 30</string>
-    <string name="med_prize">Precio $2.50</string>
 
-    <string name="cliente_name">Maria Lopez</string>
-    <string name="cliente_phone">Tel: 7032 6925</string>
-    <string name="cliente_mail">Correo: maria@gmail.com</string>
+    <!-- add client -->
+    <string name="add_client_title">Registrar Cliente</string>
+    <string name="add_client_name_hint">Nombre completo</string>
+    <string name="add_client_email_hint">Correo electrónico</string>
+    <string name="add_client_phone_hint">Teléfono</string>
+    <string name="add_client_save_button">Guardar</string>
+
+
+
+    <!-- ventas -->
+    <string name="ventas_title">Registrar Venta</string>
+    <string name="ventas_quantity_hint">Cantidad</string>
+    <string name="ventas_add_product_button">Agregar Producto</string>
+    <string name="ventas_total_label">Total: $0.00</string>
+    <string name="ventas_confirm_button">Confirmar venta</string>
+    <string name="ventas_history_title">Historial de Ventas</string>
+
+
+    <!-- registrar empleado -->
+    <string name="registrar_empleado_title">Registrar Empleado</string>
+    <string name="registrar_empleado_name_hint">Nombre</string>
+    <string name="registrar_empleado_email_hint">Correo empleado</string>
+    <string name="registrar_empleado_password_hint">Contraseña</string>
+    <string name="registrar_empleado_confirm_password_hint">Confirmar contraseña</string>
+    <string name="registrar_empleado_register_button">Registrar</string>
+    <string name="registrar_empleado_login_link">¿Ya tienes cuenta? Inicia sesión</string>
+
+
+    <!-- productos -->
+    <string name="productos_empty_list">No hay Productos aún</string>
+    <string name="productos_add_button_description">Agregar Nuevo Producto</string>
+
+
+    <!-- dashboard -->
+    <string name="dashboard_welcome">Bienvenido de nuevo,</string>
+    <string name="dashboard_loading">Cargando...</string>
+    <string name="dashboard_products">Productos</string>
+    <string name="dashboard_clients">Clientes</string>
+    <string name="dashboard_sales">Ventas</string>
+
+
+    <!-- clientes -->
+    <string name="clientes_empty_list">No hay Clientes aún</string>
+    <string name="clientes_add_button_description">Agregar Nuevo Cliente</string>
+
+
+    <!-- main activity -->
+    <string name="main_email_hint">empleado@farmacia.com</string>
+    <string name="main_password_hint">Contraseña</string>
+    <string name="main_login_button">Iniciar sesión</string>
+    <string name="main_register_button">Registrarse</string>
+    <string name="main_facebook_button">Facebook</string>
+    <string name="main_github_button">GitHub</string>
+
+    <!--Buttons-->
+    <string name="edit">Editar cliente</string>
+    <string name="remove">Eliminar cliente</string>
+
+
+
+    <!-- add producto -->
+    <string name="add_producto_title">Agregar Producto</string>
+    <string name="add_producto_name_hint">Nombre del producto</string>
+    <string name="add_producto_description_hint">Descripción</string>
+    <string name="add_producto_price_hint">Precio</string>
+    <string name="add_producto_stock_hint">Stock inicial</string>
+    <string name="add_producto_save_button">Guardar Producto</string>
+
     
     <!-- Social Login -->
     <string name="facebook_app_id">1304900684612113</string>

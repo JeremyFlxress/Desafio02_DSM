@@ -13,11 +13,12 @@
         android:orientation="vertical"
         android:background="@color/gris_fondo">
 
+        <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/blanco"
-            android:padding="16dp"
+            android:padding="@dimen/header_padding"
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
@@ -26,13 +27,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/app_title"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_size_xlarge"
                 android:textStyle="bold"
                 android:textColor="@color/verde_esmeralda"
                 android:layout_weight="1"
-                android:layout_marginStart="16dp" />
+                android:layout_marginStart="@dimen/header_padding" />
         </LinearLayout>
 
+        <!-- Main Content -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -41,32 +43,33 @@
                 android:id="@+id/recyclerViewClientes"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="16dp" />
+                android:padding="@dimen/header_padding" />
 
             <TextView
                 android:id="@+id/tvEmptyClientes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No hay Clientes aún"
-                android:textSize="18sp"
+                android:text="@string/clientes_empty_list"
+                android:textSize="@dimen/text_size_medium"
                 android:layout_gravity="center"
                 android:visibility="gone" />
 
         </FrameLayout>
     </LinearLayout>
 
+    <!-- Floating Action Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAgregarCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/header_padding"
         android:clickable="true"
         android:focusable="true"
         app:srcCompat="@android:drawable/ic_input_add"
         app:backgroundTint="@color/verde_esmeralda"
         app:tint="@color/blanco"
         app:fabSize="normal"
-        android:contentDescription="Agregar nuevo cliente" />
+        android:contentDescription="@string/clientes_add_button_description" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -7,69 +7,62 @@
     android:layout_height="match_parent"
     tools:context=".AddCliente">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F5FAF7"
-        android:padding="16dp">
+        android:padding="@dimen/header_padding">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- Título -->
             <TextView
-                android:text="Registrar Cliente"
-                android:textSize="20sp"
+                android:text="@string/add_client_title"
+                android:textSize="@dimen/spacing_large"
                 android:textStyle="bold"
                 android:textColor="#2B7A4B"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="@dimen/header_padding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <!-- Nombre -->
             <EditText
                 android:id="@+id/etNombreCliente"
-                android:hint="Nombre completo"
+                android:hint="@string/add_client_name_hint"
                 android:background="@drawable/bg_input"
-                android:padding="12dp"
+                android:padding="@dimen/card_padding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <!-- Correo -->
             <EditText
                 android:id="@+id/etCorreoCliente"
-                android:hint="Correo electrónico"
+                android:hint="@string/add_client_email_hint"
                 android:inputType="textEmailAddress"
                 android:background="@drawable/bg_input"
-                android:padding="12dp"
-                android:layout_marginTop="12dp"
+                android:padding="@dimen/card_padding"
+                android:layout_marginTop="@dimen/card_padding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <!-- Teléfono -->
             <EditText
                 android:id="@+id/etTelefonoCliente"
-                android:hint="Teléfono"
+                android:hint="@string/add_client_phone_hint"
                 android:inputType="phone"
                 android:background="@drawable/bg_input"
-                android:padding="12dp"
-                android:layout_marginTop="12dp"
+                android:padding="@dimen/card_padding"
+                android:layout_marginTop="@dimen/card_padding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <!-- Botón Guardar -->
             <Button
                 android:id="@+id/btnGuardarCliente"
-                android:text="Guardar"
+                android:text="@string/add_client_save_button"
                 android:textColor="@color/blanco"
                 android:backgroundTint="#2B7A4B"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/spacing_large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
