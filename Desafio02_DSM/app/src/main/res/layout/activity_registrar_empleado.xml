@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="@dimen/spacing_xlarge"
     android:gravity="center"
     android:background="@color/gris_fondo">
 
@@ -13,10 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/registrar_empleado_title"
-        android:textSize="22sp"
+        android:textSize="@dimen/text_size_large"
         android:textStyle="bold"
         android:textColor="@color/verde_esmeralda"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="@dimen/spacing_large"/>
 
     <EditText
         android:id="@+id/etNombreEmpleado"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/registrar_empleado_name_hint"
         android:inputType="textPersonName"
-        android:padding="10dp"/>
+        android:padding="@dimen/input_padding"/>
 
     <EditText
         android:id="@+id/etEmailEmpleado"
@@ -33,33 +33,33 @@
         android:hint="@string/registrar_empleado_email_hint"
         android:inputType="textEmailAddress"
         android:drawableStart="@android:drawable/ic_dialog_email"
-        android:padding="10dp"/>
+        android:padding="@dimen/input_padding"/>
 
     <EditText
         android:id="@+id/etPasswordEmpleado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="@dimen/list_item_margin_top"
         android:hint="@string/registrar_empleado_password_hint"
         android:inputType="textPassword"
         android:drawableStart="@android:drawable/ic_lock_idle_lock"
-        android:padding="10dp"/>
+        android:padding="@dimen/input_padding"/>
 
     <EditText
         android:id="@+id/etConfirmarPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="@dimen/list_item_margin_top"
         android:hint="@string/registrar_empleado_confirm_password_hint"
         android:inputType="textPassword"
         android:drawableStart="@android:drawable/ic_lock_idle_lock"
-        android:padding="10dp"/>
+        android:padding="@dimen/input_padding"/>
 
     <Button
         android:id="@+id/btnRegistrarEmpleado"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="@dimen/button_size_small"
+        android:layout_marginTop="@dimen/spacing_large"
         android:backgroundTint="@color/verde_esmeralda"
         android:text="@string/registrar_empleado_register_button"
         android:textColor="@color/blanco"/>
@@ -68,8 +68,9 @@
         android:id="@+id/tvIrLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/spacing_large"
         android:text="@string/registrar_empleado_login_link"
-        android:textColor="@color/azul" />
+        android:textColor="@color/azul"
+        android:textSize="@dimen/text_size_regular"/>
 
 </LinearLayout>

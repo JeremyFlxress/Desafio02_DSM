@@ -12,17 +12,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/gris_fondo"
-        android:padding="12dp">
+        android:padding="@dimen/card_padding">
 
         <!-- Header -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ventas_title"
-            android:textSize="22sp"
+            android:textSize="@dimen/text_size_large"
             android:textStyle="bold"
             android:textColor="@color/verde_esmeralda"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="@dimen/spacing_large"/>
 
         <!-- Seleccionar Cliente -->
         <Spinner
@@ -30,16 +30,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/blanco"
-            android:padding="8dp"/>
+            android:padding="@dimen/card_margin"/>
 
         <!-- Seleccionar Productos -->
         <Spinner
             android:id="@+id/spinnerProductos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/list_item_margin_top"
             android:background="@color/blanco"
-            android:padding="8dp"/>
+            android:padding="@dimen/card_margin"/>
 
         <!-- Cantidad -->
         <EditText
@@ -48,22 +48,22 @@
             android:layout_height="wrap_content"
             android:hint="@string/ventas_quantity_hint"
             android:inputType="number"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/list_item_margin_top"
             android:background="@color/blanco"
-            android:padding="10dp"/>
+            android:padding="@dimen/input_padding"/>
 
         <Button
             android:id="@+id/btnAgregarProductoVenta"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/button_size_small"
             android:text="@string/ventas_add_product_button"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="@dimen/list_item_margin_top"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewProductosVenta"
             android:layout_width="match_parent"
-            android:layout_height="150dp" 
-            android:layout_marginTop="12dp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/list_item_margin_top"/>
 
         <!-- Total -->
         <TextView
@@ -71,31 +71,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ventas_total_label"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_regular"
             android:textStyle="bold"
             android:textColor="@color/verde_esmeralda"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="@dimen/list_item_margin_top"/>
 
         <!-- Botón Confirmar -->
         <Button
             android:id="@+id/btnConfirmarVenta"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/button_size_small"
             android:text="@string/ventas_confirm_button"
             android:backgroundTint="@color/verde_esmeralda"
             android:textColor="@color/blanco"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="@dimen/list_item_margin_top"/>
 
         <!-- Historial -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ventas_history_title"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_size_medium"
             android:textStyle="bold"
             android:textColor="@color/gris_texto"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/button_margin"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewVentas"
@@ -103,6 +103,5 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

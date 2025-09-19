@@ -13,7 +13,7 @@
         android:background="@color/gris_fondo"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="@dimen/spacing_xlarge">
 
         <!-- Título -->
         <TextView
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:text="@string/app_title"
             android:textColor="@color/verde_esmeralda"
-            android:textSize="26sp"
+            android:textSize="@dimen/text_size_xxlarge"
             android:textStyle="bold" />
 
         <!-- Subtítulo -->
@@ -30,21 +30,21 @@
             android:id="@+id/tvSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="@dimen/spacing_xlarge"
             android:text="@string/app_description"
             android:textColor="@color/gris_texto"
-            android:textSize="14sp" />
+            android:textSize="@dimen/text_size_small" />
 
         <!-- Card de login -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
+            android:layout_margin="@dimen/card_padding"
             android:background="@color/blanco"
             android:clipToPadding="false"
-            android:elevation="4dp"
+            android:elevation="@dimen/card_elevation"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="@dimen/spacing_large">
 
             <!-- Email -->
             <EditText
@@ -54,25 +54,25 @@
                 android:drawableStart="@android:drawable/ic_dialog_email"
                 android:hint="@string/main_email_hint"
                 android:inputType="textEmailAddress"
-                android:padding="10dp" />
+                android:padding="@dimen/input_padding" />
 
             <!-- Password -->
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/list_item_margin_top"
                 android:drawableStart="@android:drawable/ic_lock_idle_lock"
                 android:hint="@string/main_password_hint"
                 android:inputType="textPassword"
-                android:padding="10dp" />
+                android:padding="@dimen/input_padding" />
 
             <!-- Botón login -->
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="@dimen/button_size_small"
+                android:layout_marginTop="@dimen/card_margin"
                 android:backgroundTint="@color/verde_esmeralda"
                 android:text="@string/main_login_button"
                 android:textColor="@color/blanco" />
@@ -80,8 +80,8 @@
             <Button
                 android:id="@+id/btnRegistrarse"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="12dp"
+                android:layout_height="@dimen/button_size_small"
+                android:layout_marginTop="@dimen/button_margin"
                 android:backgroundTint="@color/azul_claro"
                 android:text="@string/main_register_button"
                 android:textColor="@color/blanco" />
@@ -90,32 +90,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/card_margin"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnFacebook"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/button_size_small"
                     android:layout_weight="1"
                     android:backgroundTint="@color/azul_claro"
                     android:text="@string/main_facebook_button" />
 
                 <Space
-                    android:layout_width="12dp"
+                    android:layout_width="@dimen/spacing_medium"
                     android:layout_height="wrap_content" />
 
                 <Button
                     android:id="@+id/btnGitHub"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/button_size_small"
                     android:layout_weight="1"
                     android:backgroundTint="@color/azul_claro"
                     android:text="@string/main_github_button" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
