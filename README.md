@@ -23,26 +23,26 @@ Sistema de ventas con tematica **medicamentos** desarrollado en **Android Studio
 
 ---
 
-## 📂 Estructura del proyecto
-/app  
-├── java/com/example/desafio02_dsm  
-│ ├── models/ # Data classes (Productos, Clientes, Ventas)  
-│ ├── views/ # Activities (Login, Dashboard, Productos, Clientes, Ventas)  
-│ └── controllers/ # Lógica de Firebase y validaciones  
-└── res/  
-├── layout/ # Vistas XML  
-├── values/ # strings.xml, colors.xml, dimens.xml  
-└── drawable/ # Recursos gráficos  
-
-
----
-
 ## 📸 Capturas de pantalla
+### Login
+![Pantalla de Login](Fotos_readme/login.jpeg)
+
+### Dashboard
+![Pantalla de Dashboard](Fotos_readme/dashboard.jpeg)
+
+### Productos
+![Pantalla de Productos](Fotos_readme/productos.jpeg)
+
+### Clientes
+![Pantalla de Clientes](Fotos_readme/clientes.jpeg)
+
+### Ventas
+![Pantalla de Ventas](Fotos_readme/vntas.jpeg)
 
 ---
 
 ## 🎥 Video demostrativo
-👉 
+👉 [Enlace al video de demostración](https://udbedu-my.sharepoint.com/:v:/g/personal/ge240098_alumno_udb_edu_sv/EYJzU3L3yuxPpoD7Seykyu0BqTsqS6jHZQastasF9KiiHQ?e=X4QoXj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
 ---
 
