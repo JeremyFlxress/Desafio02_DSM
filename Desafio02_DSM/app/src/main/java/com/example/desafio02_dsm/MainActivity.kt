@@ -185,10 +185,11 @@ class MainActivity : AppCompatActivity() {
 
     // 🔹 Login con GitHub
     private fun signInWithGitHub() {
-        val provider = OAuthProvider.newBuilder("github.com").apply {
-            addCustomParameter("scope", "user:email read:user")
-            addCustomParameter("client_id", getString(R.string.github_client_id))
-        }
+        val provider = OAuthProvider.newBuilder("github.com")
+
+        // Opcional: Especifica parámetros de OAuth personalizados adicionales que quieras enviar con la solicitud de OAuth.
+        // Para conocer los parámetros que admite GitHub, consulta la documentación de OAuth de GitHub.
+        // provider.addCustomParameter("login", "your-email@gmail.com")
 
         // Primero, verificar si hay una sesión pendiente
         auth.pendingAuthResult?.addOnSuccessListener { authResult ->
