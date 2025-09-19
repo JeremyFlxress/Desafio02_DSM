@@ -52,7 +52,7 @@
                 android:layout_height="48dp"
                 android:src="@drawable/ic_edit"
                 android:backgroundTint="@color/blanco"
-                android:contentDescription="Editar cliente" />
+                android:contentDescription="@string/edit" />
 
             <ImageButton
                 android:id="@+id/btnEliminarCliente"
@@ -61,7 +61,7 @@
                 android:src="@drawable/ic_trash"
                 android:backgroundTint="@color/blanco"
                 android:layout_marginStart="8dp"
-                android:contentDescription="Eliminar cliente" />
+                android:contentDescription="@string/remove" />
         </LinearLayout>
     </LinearLayout>
 

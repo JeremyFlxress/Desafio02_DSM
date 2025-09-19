@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar Venta"
+            android:text="@string/ventas_title"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="@color/verde_esmeralda"
@@ -46,7 +46,7 @@
             android:id="@+id/etCantidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cantidad"
+            android:hint="@string/ventas_quantity_hint"
             android:inputType="number"
             android:layout_marginTop="12dp"
             android:background="@color/blanco"
@@ -56,7 +56,7 @@
             android:id="@+id/btnAgregarProductoVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Agregar Producto"
+            android:text="@string/ventas_add_product_button"
             android:layout_marginTop="12dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -70,7 +70,7 @@
             android:id="@+id/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total: $0.00"
+            android:text="@string/ventas_total_label"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/verde_esmeralda"
@@ -81,7 +81,7 @@
             android:id="@+id/btnConfirmarVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Confirmar venta"
+            android:text="@string/ventas_confirm_button"
             android:backgroundTint="@color/verde_esmeralda"
             android:textColor="@color/blanco"
             android:layout_marginTop="12dp"/>
@@ -90,7 +90,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Historial de Ventas"
+            android:text="@string/ventas_history_title"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/gris_texto"

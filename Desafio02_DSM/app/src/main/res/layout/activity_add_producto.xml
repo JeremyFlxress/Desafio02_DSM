@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Agregar Producto"
+            android:text="@string/add_producto_title"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/verde_esmeralda"
@@ -39,7 +39,7 @@
                 android:id="@+id/etNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nombre del producto"
+                android:hint="@string/add_producto_name_hint"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +54,7 @@
                 android:id="@+id/etDescripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Descripción"
+                android:hint="@string/add_producto_description_hint"
                 android:inputType="textMultiLine"
                 android:minLines="2"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -70,7 +70,7 @@
                 android:id="@+id/etPrecio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Precio"
+                android:hint="@string/add_producto_price_hint"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,7 +85,7 @@
                 android:id="@+id/etStock"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Stock inicial"
+                android:hint="@string/add_producto_stock_hint"
                 android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,7 +93,7 @@
             android:id="@+id/btnGuardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Guardar Producto"
+            android:text="@string/add_producto_save_button"
             android:backgroundTint="@color/verde_esmeralda"
             android:padding="12dp"/>
 

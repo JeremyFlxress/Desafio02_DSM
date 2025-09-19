@@ -20,7 +20,7 @@
 
             <!-- Título -->
             <TextView
-                android:text="Registrar Cliente"
+                android:text="@string/add_client_title"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="#2B7A4B"
@@ -31,7 +31,7 @@
             <!-- Nombre -->
             <EditText
                 android:id="@+id/etNombreCliente"
-                android:hint="Nombre completo"
+                android:hint="@string/add_client_name_hint"
                 android:background="@drawable/bg_input"
                 android:padding="12dp"
                 android:layout_width="match_parent"
@@ -40,7 +40,7 @@
             <!-- Correo -->
             <EditText
                 android:id="@+id/etCorreoCliente"
-                android:hint="Correo electrónico"
+                android:hint="@string/add_client_email_hint"
                 android:inputType="textEmailAddress"
                 android:background="@drawable/bg_input"
                 android:padding="12dp"
@@ -51,7 +51,7 @@
             <!-- Teléfono -->
             <EditText
                 android:id="@+id/etTelefonoCliente"
-                android:hint="Teléfono"
+                android:hint="@string/add_client_phone_hint"
                 android:inputType="phone"
                 android:background="@drawable/bg_input"
                 android:padding="12dp"
@@ -62,7 +62,7 @@
             <!-- Botón Guardar -->
             <Button
                 android:id="@+id/btnGuardarCliente"
-                android:text="Guardar"
+                android:text="@string/add_client_save_button"
                 android:textColor="@color/blanco"
                 android:backgroundTint="#2B7A4B"
                 android:layout_marginTop="20dp"

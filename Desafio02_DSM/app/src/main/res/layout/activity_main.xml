@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@android:drawable/ic_dialog_email"
-                android:hint="empleado@farmacia.com"
+                android:hint="@string/main_email_hint"
                 android:inputType="textEmailAddress"
                 android:padding="10dp" />
 
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:drawableStart="@android:drawable/ic_lock_idle_lock"
-                android:hint="Contraseña"
+                android:hint="@string/main_password_hint"
                 android:inputType="textPassword"
                 android:padding="10dp" />
 
@@ -74,7 +74,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/verde_esmeralda"
-                android:text="Iniciar sesión"
+                android:text="@string/main_login_button"
                 android:textColor="@color/blanco" />
 
             <Button
@@ -83,7 +83,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="12dp"
                 android:backgroundTint="@color/azul_claro"
-                android:text="Registrarse"
+                android:text="@string/main_register_button"
                 android:textColor="@color/blanco" />
 
             <!-- Botones sociales -->
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/azul_claro"
-                    android:text="Facebook" />
+                    android:text="@string/main_facebook_button" />
 
                 <Space
                     android:layout_width="12dp"
@@ -112,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/azul_claro"
-                    android:text="GitHub" />
+                    android:text="@string/main_github_button" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -47,7 +47,7 @@
                 android:id="@+id/tvEmptyProductos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No hay Productos aún"
+                android:text="@string/productos_empty_list"
                 android:textSize="18sp"
                 android:layout_gravity="center"
                 android:visibility="gone" />
@@ -67,6 +67,6 @@
         app:backgroundTint="@color/verde_esmeralda"
         app:tint="@color/blanco"
         app:fabSize="normal"
-        android:contentDescription="Agregar nuevo producto" />
+        android:contentDescription="@string/productos_add_button_description" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
