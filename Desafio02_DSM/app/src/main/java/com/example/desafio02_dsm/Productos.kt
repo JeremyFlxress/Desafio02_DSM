@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -139,8 +140,8 @@ class ProductoAdapter(
         private val nombre: TextView = itemView.findViewById(R.id.producto_nombre)
         private val precio: TextView = itemView.findViewById(R.id.producto_precio)
         private val stock: TextView = itemView.findViewById(R.id.producto_stock)
-        private val btnEditar: Button = itemView.findViewById(R.id.btnEditarProducto)
-        private val btnEliminar: Button = itemView.findViewById(R.id.btnEliminarProducto)
+        private val btnEditar: ImageButton = itemView.findViewById(R.id.btnEditarProducto)
+        private val btnEliminar: ImageButton = itemView.findViewById(R.id.btnEliminarProducto)
 
         fun bind(producto: Producto, onEditClick: (Producto) -> Unit, onDeleteClick: (Producto) -> Unit) {
             nombre.text = producto.nombre

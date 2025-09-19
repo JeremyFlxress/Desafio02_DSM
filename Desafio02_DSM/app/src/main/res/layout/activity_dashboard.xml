@@ -110,7 +110,7 @@
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:src="@android:drawable/ic_menu_myplaces"
+                    android:src="@drawable/ic_person"
                     app:tint="@color/verde_esmeralda" />
 
                 <TextView
