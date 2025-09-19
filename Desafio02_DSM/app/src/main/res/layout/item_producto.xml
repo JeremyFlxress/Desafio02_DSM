@@ -10,51 +10,58 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/producto_nombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/producto_precio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/producto_stock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnEditarProducto"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/producto_nombre"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Editar"
-                android:layout_marginEnd="4dp"/>
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/btnEliminarProducto"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/producto_precio"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Eliminar"
-                android:layout_marginStart="4dp"/>
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/producto_stock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
         </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
 
+            <ImageButton
+                android:id="@+id/btnEditarProducto"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_edit"
+                android:backgroundTint="@color/blanco"
+                android:contentDescription="Editar producto" />
+
+            <ImageButton
+                android:id="@+id/btnEliminarProducto"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_trash"
+                android:backgroundTint="@color/blanco"
+                android:layout_marginStart="8dp"
+                android:contentDescription="Eliminar producto" />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

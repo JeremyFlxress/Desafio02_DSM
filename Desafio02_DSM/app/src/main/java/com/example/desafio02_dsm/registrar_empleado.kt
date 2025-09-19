@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
-class RegistrarEmpleado : AppCompatActivity() {
+class RegistrarEmpleadoActivity : AppCompatActivity() {
 
     private lateinit var etNombre: EditText
     private lateinit var etEmail: EditText

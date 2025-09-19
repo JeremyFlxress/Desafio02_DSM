@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -125,8 +126,8 @@ class ClienteAdapter(
         private val nombre: TextView = itemView.findViewById(R.id.cliente_nombre)
         private val correo: TextView = itemView.findViewById(R.id.cliente_correo)
         private val telefono: TextView = itemView.findViewById(R.id.cliente_telefono)
-        private val btnEditar: Button = itemView.findViewById(R.id.btnEditarCliente)
-        private val btnEliminar: Button = itemView.findViewById(R.id.btnEliminarCliente)
+        private val btnEditar: ImageButton = itemView.findViewById(R.id.btnEditarCliente)
+        private val btnEliminar: ImageButton = itemView.findViewById(R.id.btnEliminarCliente)
 
         fun bind(cliente: Cliente, onEditClick: (Cliente) -> Unit, onDeleteClick: (Cliente) -> Unit) {
             nombre.text = cliente.nombre
