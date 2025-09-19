@@ -30,25 +30,25 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
+
         try {
-            // 🔹 Inicializar Facebook SDK
+            // inicializa Facebook SDK
             FacebookSdk.setApplicationId(getString(R.string.facebook_app_id))
             FacebookSdk.sdkInitialize(applicationContext)
-            
-            // 🔹 Inicializar FirebaseAuth y Facebook CallbackManager
+
+            // inicializa FirebaseAuth
             auth = FirebaseAuth.getInstance()
-            
-            // Cerrar cualquier sesión existente al iniciar la app
+
+            // cierra cualquier sesión existente al iniciar la app
             auth.signOut()
             LoginManager.getInstance().logOut()
-            
+
             enableEdgeToEdge()
             setContentView(R.layout.activity_main)
-            
+
             callbackManager = CallbackManager.Factory.create()
 
-            // 🔹 Referencias UI
+            // referencias UI
             etEmail = findViewById(R.id.etEmail)
             etPassword = findViewById(R.id.etPassword)
             btnLogin = findViewById(R.id.btnLogin)
@@ -56,13 +56,14 @@ class MainActivity : AppCompatActivity() {
             btnFacebook = findViewById(R.id.btnFacebook)
             btnGitHub = findViewById(R.id.btnGitHub)
         } catch (e: Exception) {
-            // Si hay algún error en la inicialización, reiniciar la actividad
+            // si hay algún error en la inicialización, reiniciar la actividad
             Toast.makeText(this, "Error al iniciar la aplicación", Toast.LENGTH_SHORT).show()
             recreate()
             return
         }
 
-        // 🔹 Acción de login con email/password
+        // --- bloque de login con correo y contraseña ---
+        // acción de login con email/password
         btnLogin.setOnClickListener {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
@@ -74,24 +75,25 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // 🔹 Ir a registrar nuevo empleado
+        // --- bloque de registro ---
+        // ir a registrar nuevo empleado
         btnRegistrarse.setOnClickListener {
             startActivity(Intent(this, RegistrarEmpleadoActivity::class.java))
         }
 
-        // 🔹 Login con Facebook
+        // --- bloque de login con Facebook ---
+        // login con Facebook
         btnFacebook.setOnClickListener {
-            // Asegurarse de cerrar cualquier sesión previa
             LoginManager.getInstance().logOut()
-            
-            // Solicitar permisos necesarios
+
+            // solicitar permisos necesarios
             LoginManager.getInstance().logInWithReadPermissions(
                 this,
                 listOf("email", "public_profile")
             )
         }
 
-        // Configurar callback de Facebook
+        // configurar callback de Facebook
         LoginManager.getInstance().registerCallback(callbackManager,
             object : FacebookCallback<LoginResult> {
                 override fun onSuccess(result: LoginResult) {
@@ -99,8 +101,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onCancel() {
-                    Toast.makeText(this@MainActivity, 
-                        "Login cancelado", 
+                    Toast.makeText(this@MainActivity,
+                        "Login cancelado",
                         Toast.LENGTH_SHORT).show()
                 }
 
@@ -111,11 +113,13 @@ class MainActivity : AppCompatActivity() {
                 }
             })
 
-        // 🔹 Login con GitHub
+        // --- bloque de login con GitHub ---
+        // login con GitHub
         btnGitHub.setOnClickListener {
             signInWithGitHub()
         }
 
+        // --- bloque de configuración de la vista ---
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -123,91 +127,71 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // --- funciones de login (fuera del onCreate) ---
+
+    // función para login con correo y contraseña
     private fun loginEmpleado(email: String, password: String) {
-        // Desactivar el botón de login para evitar múltiples clicks
         btnLogin.isEnabled = false
-        
+
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     try {
-                        // ✅ Login correcto → Ir al Dashboard
+                        // nos lleva a la página una vez logeados
                         Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, Dashboard::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         startActivity(intent)
                         finish()
                     } catch (e: Exception) {
-                        // Error al abrir Dashboard
-                        auth.signOut() // Asegurarse de cerrar la sesión si hay error
+                        auth.signOut()
                         Toast.makeText(this, "Error al abrir Dashboard: ${e.message}", Toast.LENGTH_LONG).show()
                         btnLogin.isEnabled = true
                     }
                 } else {
-                    // ❌ Error de login
-                    auth.signOut() // Asegurarse de cerrar la sesión si hay error
+                    // error de login
+                    auth.signOut()
                     Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                     btnLogin.isEnabled = true
                 }
             }
     }
 
-    // 🔹 Verificar si ya hay usuario logueado
-    override fun onStart() {
-        super.onStart()
-        // Al iniciar, asegurarnos de que estamos en la pantalla de login
-        auth.signOut()
-    }
-
-    // 🔹 Procesar resultado del login de Facebook
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        callbackManager.onActivityResult(requestCode, resultCode, data)
-    }
-
-    // 🔹 Manejar token de acceso de Facebook
+    // Función para manejar el token de Facebook
     private fun handleFacebookAccessToken(token: AccessToken) {
         val credential = FacebookAuthProvider.getCredential(token.token)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Login exitoso
                     Toast.makeText(this, "Bienvenido via Facebook", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, Dashboard::class.java))
                     finish()
                 } else {
-                    // Error en el login
                     Toast.makeText(this, "Error de autenticación: ${task.exception?.message}",
                         Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
-    // 🔹 Login con GitHub
+    // Funciones para login con GitHub
     private fun signInWithGitHub() {
         val provider = OAuthProvider.newBuilder("github.com")
-
-        // Opcional: Especifica parámetros de OAuth personalizados adicionales que quieras enviar con la solicitud de OAuth.
-        // Para conocer los parámetros que admite GitHub, consulta la documentación de OAuth de GitHub.
-        // provider.addCustomParameter("login", "your-email@gmail.com")
-
-        // Primero, verificar si hay una sesión pendiente
         auth.pendingAuthResult?.addOnSuccessListener { authResult ->
-            // Existe una sesión pendiente, manejarla
+            // si existe una sesión pendiente, manejarla
             Toast.makeText(this, "Bienvenido via GitHub", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, Dashboard::class.java))
             finish()
         }?.addOnFailureListener { e ->
-            // No hay sesión pendiente, iniciar nuevo flujo
+            // no hay sesión pendiente, iniciar nuevo flujo
             startGitHubLogin(provider)
-        } ?: startGitHubLogin(provider) // Si no hay pending result, iniciar nuevo flujo
+        } ?: startGitHubLogin(provider)
     }
 
     private fun startGitHubLogin(provider: OAuthProvider.Builder) {
         try {
             auth.startActivityForSignInWithProvider(this, provider.build())
                 .addOnSuccessListener { authResult ->
-                    // Login exitoso
+                    // login exitoso
                     val user = authResult.user
                     if (user != null) {
                         Toast.makeText(this, "Bienvenido ${user.displayName}", Toast.LENGTH_SHORT).show()
@@ -218,7 +202,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 .addOnFailureListener { e ->
-                    // Error en el login
+                    // error en el login
                     when {
                         e.message?.contains("cancelled") == true -> {
                             Toast.makeText(this, "Login cancelado", Toast.LENGTH_SHORT).show()
@@ -234,5 +218,19 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Toast.makeText(this, "Error al iniciar login: ${e.message}", Toast.LENGTH_LONG).show()
         }
+    }
+
+    // --- Funciones del ciclo de vida de la actividad (fuera del onCreate) ---
+
+    // verificar si ya hay usuario logueado
+    override fun onStart() {
+        super.onStart()
+        auth.signOut()
+    }
+
+    // procesar resultado del login de Facebook
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        callbackManager.onActivityResult(requestCode, resultCode, data)
     }
 }
