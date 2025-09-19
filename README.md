@@ -24,20 +24,22 @@ Sistema de ventas con tematica **medicamentos** desarrollado en **Android Studio
 ---
 
 ## 📸 Capturas de pantalla
+
 ### Login
-![Pantalla de Login](Fotos_readme/login.jpeg)
+<img src="Fotos_readme/login.png" alt="Pantalla de Login" width="250"/>
 
 ### Dashboard
-![Pantalla de Dashboard](Fotos_readme/dashboard.jpeg)
+<img src="Fotos_readme/dashboard.png" alt="Pantalla de Dashboard" width="250"/>
 
 ### Productos
-![Pantalla de Productos](Fotos_readme/productos.jpeg)
+<img src="Fotos_readme/productos.png" alt="Pantalla de Productos" width="250"/>
 
 ### Clientes
-![Pantalla de Clientes](Fotos_readme/clientes.jpeg)
+<img src="Fotos_readme/clientes.png" alt="Pantalla de Clientes" width="250"/>
 
 ### Ventas
-![Pantalla de Ventas](Fotos_readme/vntas.jpeg)
+<img src="Fotos_readme/ventas.png" alt="Pantalla de Ventas" width="250"/>
+
 
 ---
 
